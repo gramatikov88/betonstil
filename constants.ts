@@ -15,42 +15,42 @@ export const PRODUCTS: Product[] = [
     id: 1,
     title: 'Унипаваж MD80',
     category: 'Павета',
-    image: 'https://images.unsplash.com/photo-1517646331032-9e8563c523a1?q=80&w=800&auto=format&fit=crop',
+    image: '/images/product-1.jpg',
     description: 'Вибропресовани павета с висока плътност. Идеални за тежко натоварване и индустриални зони.'
   },
   {
     id: 2,
     title: 'Плоча Urban 40x40',
     category: 'Плочи',
-    image: 'https://images.unsplash.com/photo-1621252179027-94459d27d3ee?q=80&w=800&auto=format&fit=crop',
+    image: '/images/product-2.jpg',
     description: 'Минималистичен дизайн за модерни градски пространства. Специално покритие против плъзгане.'
   },
   {
     id: 3,
     title: 'Бордюр CityLine',
     category: 'Бордюри',
-    image: 'https://images.unsplash.com/photo-1623945417387-c5053b93728f?q=80&w=800&auto=format&fit=crop',
+    image: '/images/product-3.jpg',
     description: 'Прецизни линии за очертаване на алеи и улици. Устойчив на соли и замръзване.'
   },
   {
     id: 4,
     title: 'Facade Stone X',
     category: 'Декорация',
-    image: 'https://images.unsplash.com/photo-1486749816008-8df0c34e6224?q=80&w=800&auto=format&fit=crop',
+    image: '/images/product-4.jpg',
     description: '3D текстуриран бетон за окачени фасади. Отлична топлоизолация и модерна визия.'
   },
   {
     id: 5,
     title: 'Еко Грид 2.0',
     category: 'Еко решения',
-    image: 'https://images.unsplash.com/photo-1662497677353-06698642a849?q=80&w=800&auto=format&fit=crop',
+    image: '/images/product-5.jpg',
     description: 'Паркинг елементи, позволяващи озеленяване. Дренажна система за отвеждане на водата.'
   },
   {
     id: 6,
     title: 'Zen Planter L',
     category: 'Градина',
-    image: 'https://images.unsplash.com/photo-1622372738946-62e02505feb3?q=80&w=800&auto=format&fit=crop',
+    image: '/images/product-6.jpg',
     description: 'Масивни бетонни кашпи с архитектурен бетон. Подходящи за обществени сгради.'
   }
 ];
@@ -58,25 +58,25 @@ export const PRODUCTS: Product[] = [
 export const GALLERY_IMAGES: GalleryItem[] = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1624322474936-a337a3461239?q=80&w=1200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop',
     title: 'Резиденция Лозенец',
     category: 'Частен дом'
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1596627680452-f63334e3658d?q=80&w=1200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop',
     title: 'Бизнес Парк София',
     category: 'Обществени площи'
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?q=80&w=1200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200&auto=format&fit=crop',
     title: 'Хотел Море',
     category: 'Басейни и алеи'
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1633633818318-622f6795b8d2?q=80&w=1200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?q=80&w=1200&auto=format&fit=crop',
     title: 'Вила Витоша',
     category: 'Ландшафт'
   }

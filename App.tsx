@@ -8,6 +8,7 @@ import GallerySection from './components/GallerySection';
 import TestimonialsSection from './components/TestimonialsSection';
 import AboutSection from './components/AboutSection';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const App: React.FC = () => {
         <TestimonialsSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

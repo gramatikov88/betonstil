@@ -31,20 +31,30 @@ const features: Feature[] = [
 
 const Features: React.FC = () => {
   return (
-    <section id="features" className="bg-black py-24 relative z-20">
-      <div className="container mx-auto px-6">
+    <section id="features" className="relative py-24 z-20 overflow-hidden">
+      {/* Parallax Background */}
+      <div
+        className="absolute inset-0 z-0 bg-fixed bg-cover bg-center"
+        style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2070&auto=format&fit=crop")'
+        }}
+      >
+        <div className="absolute inset-0 bg-black/90"></div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* Contrast fix: Use gap and distinct card backgrounds */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature) => (
-            <div key={feature.id} className="group p-10 bg-zinc-900 border border-zinc-800 hover:border-accent hover:bg-zinc-800 transition-all duration-500 relative overflow-hidden shadow-lg">
-              
+            <div key={feature.id} className="group p-10 bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 hover:border-accent hover:bg-zinc-900/90 transition-all duration-500 relative overflow-hidden shadow-lg">
+
               {/* Hover Effect Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
+
               <div className="mb-8 transform group-hover:-translate-y-2 transition-transform duration-300 inline-flex items-center justify-center p-4 border border-zinc-700 rounded bg-black group-hover:border-accent group-hover:shadow-[0_0_15px_rgba(122,211,198,0.2)]">
                 {feature.icon}
               </div>
-              
+
               <h3 className="text-xl font-display font-bold text-white mb-4 uppercase tracking-wider group-hover:text-accent transition-colors relative z-10">
                 {feature.title}
               </h3>
