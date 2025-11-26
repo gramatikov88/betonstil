@@ -1,21 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const [scrollY, setScrollY] = useState(0);
+  const mirroredTextRef = useRef<HTMLDivElement>(null);
+  const shineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const moveX = Math.min(scrollY * 0.5, 200);
+          const isAtEnd = moveX >= 150;
+
+          if (mirroredTextRef.current) {
+            mirroredTextRef.current.style.transform = `scaleY(-1) translateX(${moveX}px)`;
+          }
+
+          if (shineRef.current) {
+            shineRef.current.style.opacity = isAtEnd ? '1' : '0';
+          }
+
+          ticking = false;
+        });
+
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Calculate parallax/animation values
-  const moveX = Math.min(scrollY * 0.5, 200); // Move up to 200px to the right
-  const isAtEnd = moveX >= 150; // Trigger shine when close to the end
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-black pb-32">
@@ -69,9 +86,10 @@ const Hero: React.FC = () => {
 
             {/* Mirrored/Blurred Reflection with Scroll Animation */}
             <div
+              ref={mirroredTextRef}
               className="absolute top-full left-0 w-full transform scale-y-[-1] opacity-30 blur-sm select-none pointer-events-none origin-top bg-gradient-to-b from-white/50 to-transparent bg-clip-text text-transparent transition-transform duration-100 ease-out will-change-transform"
               aria-hidden="true"
-              style={{ transform: `scaleY(-1) translateX(${moveX}px)` }}
+              style={{ transform: 'scaleY(-1) translateX(0px)' }}
             >
               <div className="relative inline-block">
                 <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-black uppercase leading-[0.9] tracking-tight">
@@ -83,7 +101,8 @@ const Hero: React.FC = () => {
 
                 {/* Shine Effect */}
                 <div
-                  className={`absolute top-0 left-0 w-20 h-20 bg-white/80 blur-xl rounded-full mix-blend-overlay transition-opacity duration-700 ${isAtEnd ? 'opacity-100' : 'opacity-0'}`}
+                  ref={shineRef}
+                  className="absolute top-0 left-0 w-20 h-20 bg-white/80 blur-xl rounded-full mix-blend-overlay transition-opacity duration-700 opacity-0"
                   style={{
                     transform: 'translate(-50%, -50%)',
                     boxShadow: '0 0 40px 20px rgba(255,255,255,0.4)'

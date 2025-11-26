@@ -7,11 +7,22 @@ const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let timeoutId: number;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (timeoutId) return;
+
+      timeoutId = window.setTimeout(() => {
+        setIsScrolled(window.scrollY > 50);
+        timeoutId = 0;
+      }, 100); // Check every 100ms
     };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
